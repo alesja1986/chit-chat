@@ -1,0 +1,37 @@
+form {
+  background-color:blanchedalmond;  //färgena ska sen anpassas efter våran color map
+  display: block;
+  margin: auto;
+  width: 350px;
+  border-radius:2em;
+  padding-bottom:1.5em;
+
+  h2{
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  input{
+    border-radius:0.5em;
+    margin:0 0 0.5em 1.5em;
+    width:300px;
+    height: 40px;
+    border: 1px solid #ccc;
+  }
+
+  label{
+    display: block;
+    margin: 0.5em 0 0 2em;
+  }
+
+#registerBtn{
+  background-color:darkred;
+  color: white;
+  display: block;
+  height: 40px;
+  width:250px;
+  border-radius:1em;
+  border-style: none;
+  margin: 1em 0 0 3em;
+}
+} //form ends
