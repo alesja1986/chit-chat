@@ -22,6 +22,23 @@
 <body>
 
 
+	<!-- 
+		Firebase 
+	-->
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
+			authDomain: "chit-chat-best.firebaseapp.com",
+			databaseURL: "https://chit-chat-best.firebaseio.com",
+			projectId: "chit-chat-best",
+			storageBucket: "chit-chat-best.appspot.com",
+			messagingSenderId: "863697896515"
+		};
+		firebase.initializeApp(config);
+	</script>
+
 	<!-- JavaScript -->
 	<!--build:js js/main.min.js -->
 	<script src="js/main.js"></script>
