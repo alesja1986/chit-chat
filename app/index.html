@@ -22,23 +22,23 @@
 <body>
 
 
-<form>
-	   <h2>Register</h2>
-	 <label>Username *</label>
-	 <input id="user-name">
+	<form>
+		<h2>Register</h2>
+		<label>Username *</label>
+		<input id="user-name" required>
 
-	 <label>Full Name*</label>
-	 <input id="full-name">
+		<label>Full Name*</label>
+		<input id="full-name" required>
 
-	 <label>E-mail *</label>
-	 <input id="e-mail">
+		<label>E-mail *</label>
+		<input id="e-mail" required>
 
-	 <label>Password *</label>
-	 <input id="password">
+		<label>Password *</label>
+		<input id="password" required>
 
-	<button type="submit" id="registerBtn">Register Now</button>
-</form>
-    <p id="error-message"></p>
+		<button type="submit" id="registration-btn">Register Now</button>
+	</form>
+
 
 
 	<!-- 
@@ -59,8 +59,12 @@
 	</script>
 
 	<!-- JavaScript -->
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
 	<!--build:js js/main.min.js -->
-	<script src="js/main.js"></script>
+	<script src="js/ui.js"></script>
+	<script src="js/registration.js"></script>
 	<!-- endbuild -->
      <script src="scripts/registration.js"></script>
 </body>
