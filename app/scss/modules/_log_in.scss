@@ -13,15 +13,16 @@
         }
 
         .e-mail {
-
+            @extend %form-input;
         }
 
         .password {
-
+            @extend %form-input;
         }
 
         #login-button {
-
+            @extend %button;
+            width: 100px;
         }
     }
 }

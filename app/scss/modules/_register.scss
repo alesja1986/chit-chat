@@ -1,4 +1,4 @@
-form {
+#registration-form {
   background-color:map-get($color,  accent3 );
   color:map-get($color, dark);
   display: block;
@@ -15,6 +15,7 @@ form {
   input{
     @extend %form-input;
     margin:0 0 0.5em 1.5em;
+    width: 300px;
   }
 
   label{
@@ -26,6 +27,7 @@ form {
   @extend %button;
   display:block;
   margin-left:3em;
+  width:250px;
 }
 
   p{
