@@ -1,0 +1,56 @@
+form {
+  background-color:map-get($color,  accent3 );
+  color:map-get($color, dark);
+  display: block;
+  margin: auto;
+  width: 350px;
+  border-radius:2em;
+  padding-bottom:1.5em;
+
+  h2{
+    text-align: center;
+    padding-top: 1em;
+  }
+
+  input{
+    @extend %form-input;
+    margin:0 0 0.5em 1.5em;
+  }
+
+  label{
+    display: block;
+    margin: 0.5em 0 0 2em;
+  }
+
+#registration-btn{
+  @extend %button;
+  display:block;
+  margin-left:3em;
+}
+
+  p{
+   color:map-get($color,main);
+  }
+} //form ends
+
+#welcome-text{
+   color:map-get($color,bright);
+   text-align: center;
+
+  h1{
+    font-size: 70px;
+    line-height: 0px;
+  }
+
+  h3{
+    font-size: 40px;
+    padding-bottom: 0.5em;
+  }
+
+  h4{
+    font-size: 25px;
+    padding-bottom: 1em;
+    font-style: italic;
+  }
+
+}

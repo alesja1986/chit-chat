@@ -11,3 +11,5 @@ settings.json
 .vscode
 package-lock.json
 app/css/styles.css
+.idea
+.idea/
