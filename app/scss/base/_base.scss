@@ -12,3 +12,7 @@ a {
 ul {
     list-style-type: none;
 }
+
+body {
+    background-color: map-get($color,  accent2 );
+}

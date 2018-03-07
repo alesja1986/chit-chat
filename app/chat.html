@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <!-- The below 3 meta tags *must* come first in the head -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site information -->
+    <title>Chit-Chat</title>
+    <meta name="description" content="A Simple Chat Application">
+    <meta name="keywords" content="">
+    <meta name="author" content="Andreas Lymalm, Alesja Rudaja">
+
+    <!-- Stylesheets -->
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- endbuild -->
+</head>
+
+<body>
+
+<h2>Now can you start chit-chat with your buddies!:)</h2>
+
+
+
+
+<!--
+    Firebase
+-->
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
+        authDomain: "chit-chat-best.firebaseapp.com",
+        databaseURL: "https://chit-chat-best.firebaseio.com",
+        projectId: "chit-chat-best",
+        storageBucket: "chit-chat-best.appspot.com",
+        messagingSenderId: "863697896515"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<!-- JavaScript -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<!--build:js js/main.min.js -->
+<script src="js/ui.js"></script>
+<!-- endbuild -->
+
+</body>
+
+</html>
