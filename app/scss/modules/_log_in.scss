@@ -1,0 +1,27 @@
+#login {
+    background: map-get($color, main);
+    height: 50px;
+
+    form {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        & > * {
+            margin-right: 1em;
+        }
+
+        .e-mail {
+
+        }
+
+        .password {
+
+        }
+
+        #login-button {
+
+        }
+    }
+}
