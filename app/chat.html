@@ -23,34 +23,51 @@
 
 <h2>Now can you start chit-chat with your buddies!:)</h2>
 
+    <!-- 
+        Log out/settings 
+    -->
+    <div id="user-bar"></div>
+    <div id="user-settings"></div>
 
+    <!-- 
+        Application 
+    -->
+    <div id="main-app">
+        <div id="chat-rooms"></div>
+        <div id="logged-in-users"></div>
+        <div id="chat-window">
+            <div id="chat-bar"></div>
+            <div id="chat-view"></div>
+            <div id="chat-input"></div>
+        </div>
+        <div id="chat-settings"></div>
+    </div>
 
+    <!--
+        Firebase
+    -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
+            authDomain: "chit-chat-best.firebaseapp.com",
+            databaseURL: "https://chit-chat-best.firebaseio.com",
+            projectId: "chit-chat-best",
+            storageBucket: "chit-chat-best.appspot.com",
+            messagingSenderId: "863697896515"
+        };
+        firebase.initializeApp(config);
+    </script>
 
-<!--
-    Firebase
--->
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
-        authDomain: "chit-chat-best.firebaseapp.com",
-        databaseURL: "https://chit-chat-best.firebaseio.com",
-        projectId: "chit-chat-best",
-        storageBucket: "chit-chat-best.appspot.com",
-        messagingSenderId: "863697896515"
-    };
-    firebase.initializeApp(config);
-</script>
+    <!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 
-<!-- JavaScript -->
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
-<!--build:js js/main.min.js -->
-<script src="js/ui.js"></script>
-<!-- endbuild -->
+    <!--build:js js/main.min.js -->
+    <script src="js/ui.js"></script>
+    <!-- endbuild -->
 
 </body>
 
