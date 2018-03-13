@@ -22,11 +22,12 @@
     <!-- Stylesheets -->
     <!--build:css css/styles.min.css-->
     <link rel="stylesheet" href="css/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <!-- endbuild -->
 </head>
 
 <body>
-    
+
     <!-- 
         Log out/settings 
     -->
@@ -42,14 +43,31 @@
         Application 
     -->
     <div id="main-app">
-        <div id="chat-rooms"></div>
-        <div id="logged-in-users"></div>
-        <div id="chat-window">
-            <div id="chat-bar"></div>
-            <div id="chat-view"></div>
-            <div id="chat-input"></div>
+
+          <div id="chat-rooms">
+               <h3>Chat Rooms</h3>
+          </div>
+
+          <div id="logged-in-users">
+               <h3>Logged in users</h3>
+          </div>
+
+          <div id="chat-window">
+               <div id="chat-bar">
+                   <h3>KODNINJORNA</h3>
+                   <span id="chat-settings-btn"><i class="fas fa-cogs"></i></span>
+               </div>
+
+               <div id="chat-view"></div>
+               <div id="chat-input">
+                    <input type="text" id="chat-message-input" placeholder="write your message...">
+                    <button type="submit" id="send-message">Send</button>
+              </div>
+          </div>
+
+        <div id="chat-settings" >
+
         </div>
-        <div id="chat-settings"></div>
     </div>
 
     <!--
