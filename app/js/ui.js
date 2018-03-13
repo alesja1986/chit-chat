@@ -5,4 +5,9 @@ const ui = {
     regEmail: $("#e-mail"),
     regPassword: $("#password"),
     regSubmitBtn: $("#registration-btn"),
+
+    // User corner info
+    userBar: $("#user-bar"),
+    userSettingsBtn: $("#user-settings-button"),
+    userLogoutBtn: $("#logout-button"),
 }

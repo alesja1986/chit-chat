@@ -13,6 +13,12 @@
     <meta name="keywords" content="">
     <meta name="author" content="Andreas Lymalm, Alesja Rudaja">
 
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+
     <!-- Stylesheets -->
     <!--build:css css/styles.min.css-->
     <link rel="stylesheet" href="css/styles.css">
@@ -20,14 +26,17 @@
 </head>
 
 <body>
-
-<h2>Now can you start chit-chat with your buddies!:)</h2>
-
+    
     <!-- 
         Log out/settings 
     -->
-    <div id="user-bar"></div>
-    <div id="user-settings"></div>
+    <div id="user-bar">
+        <div id="user-settings-button">
+            <img class="avatar" src="img/avatars/cat.png">
+            <span class="username">Andreas</span>
+        </div>
+        <button id="logout-button">Log Out</button>
+    </div>
 
     <!-- 
         Application 
@@ -63,10 +72,11 @@
     <!-- JavaScript -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
     <!--build:js js/main.min.js -->
     <script src="js/ui.js"></script>
+    <script src="js/logout.js"></script>
     <!-- endbuild -->
 
 </body>

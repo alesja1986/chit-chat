@@ -8,6 +8,10 @@
   border-style: none;
   cursor: pointer;
   outline:none;
+
+  &:hover {
+    background: lighten(map-get($color,accent1), 5%);
+  }
 }
 
 %form-input{
