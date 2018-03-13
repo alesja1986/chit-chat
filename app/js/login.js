@@ -10,8 +10,8 @@ function logIn(){
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
             sessionStorage.UID = firebase.auth().currentUser.uid;
-            firebase.database().ref("all-users/" + sessionStorage.UID).update({
-                "logged-in": true,
+            firebase.database().ref("logged-in").update({
+                [sessionStorage.UID]: true,
             })
             .then(() => window.location.replace("../chat.html"))
         })
