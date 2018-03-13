@@ -1,0 +1,32 @@
+/* Top content on chat page */
+#user-bar {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    /* User settings = avatar + username */
+    #user-settings {
+        display: flex;
+        align-items: center;
+        
+        /* Avatar picture */
+        .avatar {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Username */
+        .username {
+            margin-left: .5em;
+            font-size: 20px;
+        }
+    }
+
+    /* Log out button */
+    #logout {
+        @extend %button;
+        margin-left: 2em;
+        width: 100px;
+    }
+}
