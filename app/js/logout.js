@@ -1,4 +1,6 @@
 
+ui.userLogoutBtn.on("click", () => logOut());
+
 function logOut(){
     firebase.auth().signOut()
         .then(() => {

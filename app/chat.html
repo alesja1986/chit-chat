@@ -13,44 +13,89 @@
     <meta name="keywords" content="">
     <meta name="author" content="Andreas Lymalm, Alesja Rudaja">
 
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+
     <!-- Stylesheets -->
     <!--build:css css/styles.min.css-->
     <link rel="stylesheet" href="css/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <!-- endbuild -->
 </head>
 
 <body>
 
-<h2>Now can you start chit-chat with your buddies!:)</h2>
+    <!-- 
+        Log out/settings 
+    -->
+    <div id="user-bar">
+        <div id="user-settings-button">
+            <img class="avatar" src="img/avatars/cat.png">
+            <span class="username">Andreas</span>
+        </div>
+        <button id="logout-button">Log Out</button>
+    </div>
 
+    <!-- 
+        Application 
+    -->
+    <div id="main-app">
 
+          <div id="chat-rooms">
+               <h3>Chat Rooms</h3>
+          </div>
 
+          <div id="logged-in-users">
+               <h3>Logged in users</h3>
+          </div>
 
-<!--
-    Firebase
--->
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
-        authDomain: "chit-chat-best.firebaseapp.com",
-        databaseURL: "https://chit-chat-best.firebaseio.com",
-        projectId: "chit-chat-best",
-        storageBucket: "chit-chat-best.appspot.com",
-        messagingSenderId: "863697896515"
-    };
-    firebase.initializeApp(config);
-</script>
+          <div id="chat-window">
+               <div id="chat-bar">
+                   <h3>KODNINJORNA</h3>
+                   <span id="chat-settings-btn"><i class="fas fa-cogs"></i></span>
+               </div>
 
-<!-- JavaScript -->
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               <div id="chat-view"></div>
+               <div id="chat-input">
+                    <input type="text" id="chat-message-input" placeholder="write your message...">
+                    <button type="submit" id="send-message">Send</button>
+              </div>
+          </div>
+
+        <div id="chat-settings" >
+
+        </div>
+    </div>
+
+    <!--
+        Firebase
+    -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAIqrbM9exOGeUaHEXk7k2op_MPnmcXkEI",
+            authDomain: "chit-chat-best.firebaseapp.com",
+            databaseURL: "https://chit-chat-best.firebaseio.com",
+            projectId: "chit-chat-best",
+            storageBucket: "chit-chat-best.appspot.com",
+            messagingSenderId: "863697896515"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-<!--build:js js/main.min.js -->
-<script src="js/ui.js"></script>
-<!-- endbuild -->
+    <!--build:js js/main.min.js -->
+    <script src="js/ui.js"></script>
+    <script src="js/logout.js"></script>
+    <!-- endbuild -->
 
 </body>
 

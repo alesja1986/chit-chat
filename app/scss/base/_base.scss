@@ -15,4 +15,9 @@ ul {
 
 body {
     background-color: map-get($color,  accent2 );
+
+    /* Center all child div's */
+    & > div {
+        margin: 0 auto;
+    }
 }
