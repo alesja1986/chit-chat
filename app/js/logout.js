@@ -16,3 +16,5 @@ function logOut(){
         })
         .catch((err) => console.log(err));
 }
+
+firebase.database().ref("logged-in/" + sessionStorage.UID).onDisconnect().set(false);

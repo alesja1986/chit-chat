@@ -11,6 +11,9 @@ const ui = {
     chatMessageInput:$('#chat-message-input'),
     chatSettingsBtn: $("#chat-settings-btn"),
 
+    // Logged in users
+    loggedInUsers: $("#logged-in-users"),
+
     // User corner info
     userBar: $("#user-bar"),
     userSettingsBtn: $("#user-settings-button"),
