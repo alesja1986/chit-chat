@@ -10,4 +10,9 @@ const ui = {
     sendMessageBtn: $("#send-message"),
     chatMessageInput:$('#chat-message-input'),
     chatSettingsBtn: $("#chat-settings-btn"),
+
+    // User corner info
+    userBar: $("#user-bar"),
+    userSettingsBtn: $("#user-settings-button"),
+    userLogoutBtn: $("#logout-button"),
 }

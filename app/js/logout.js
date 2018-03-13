@@ -1,6 +1,8 @@
 
+ui.userLogoutBtn.on("click", () => logOut());
+
 function logOut(){
     firebase.auth().signOut()
-        .then(() => console.log("Du är utloggad"))
+        .then(() => window.location.replace("../index.html"))
         .catch(() => console.log("Kunde inte logga ut :("));
 }
