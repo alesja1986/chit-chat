@@ -15,11 +15,15 @@ ui.regSubmitBtn.on("click", function(e) {
                 "username": ui.regUsername.val(),
                 "avatar": 'default',
                 "e-mail": ui.regEmail.val(),
-                "logged-in": true,
                 "name": ui.regFullname.val(),
                 "theme": 0,
             })
-            .then(() => window.location.replace("../chat.html"));
+            .then(() => {
+                firebase.database().ref("logged-in").update({
+                    [sessionStorage.UID]: true,
+                })
+                .then(() => window.location.replace("../chat.html"))
+            });
             return;
         })
         .catch(error => console.log("Something went wrong with the registration\n" + error));
