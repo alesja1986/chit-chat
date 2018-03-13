@@ -10,8 +10,8 @@ ui.regSubmitBtn.on("click", function(e) {
     // Create user with e-mail and password
     firebase.auth().createUserWithEmailAndPassword(ui.regEmail.val(), ui.regPassword.val())
         .then(() => {
-            UID = firebase.auth().currentUser.uid;
-            firebase.database().ref("all-users/" + UID).set({
+            sessionStorage.UID = firebase.auth().currentUser.uid;
+            firebase.database().ref("all-users/" + sessionStorage.UID).set({
                 "username": ui.regUsername.val(),
                 "avatar": 'default',
                 "e-mail": ui.regEmail.val(),

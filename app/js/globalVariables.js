@@ -1,1 +1,2 @@
-let UID = null;
+if(!sessionStorage.UID) 
+    sessionStorage.UID = null;
