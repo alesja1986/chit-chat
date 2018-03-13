@@ -40,9 +40,12 @@
 }
 
 #chat-input button{
-  cursor: pointer;
   @extend %button;
   width:200px;
   margin-left: 10px;
+}
+
+#chat-message-input{
+ padding-left:1em;
 }
 }
