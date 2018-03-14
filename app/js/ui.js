@@ -6,6 +6,9 @@ const ui = {
     regPassword: $("#password"),
     regSubmitBtn: $("#registration-btn"),
 
+    // Main
+    mainApp: $("#main-app"),
+
     //chat window
     sendMessageBtn: $("#send-message"),
     chatMessageInput:$('#chat-message-input'),
@@ -21,4 +24,7 @@ const ui = {
     userBar: $("#user-bar"),
     userSettingsBtn: $("#user-settings-button"),
     userLogoutBtn: $("#logout-button"),
+
+    // User settings
+    userSettings: $("#user-settings"),
 }

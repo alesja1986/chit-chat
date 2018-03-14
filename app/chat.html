@@ -14,9 +14,7 @@
     <meta name="author" content="Andreas Lymalm, Alesja Rudaja">
 
     <!-- Font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
 
     <!-- Stylesheets -->
@@ -44,55 +42,78 @@
     -->
     <div id="main-app">
 
-          <div id="chat-rooms">
-               <h3>Chat Rooms</h3>
-          </div>
+        <div id="chat-rooms">
+            <h3>Chat Rooms</h3>
+        </div>
 
-          <div id="logged-in-users">
-               <h3>Logged in users</h3>
-          </div>
+        <div id="logged-in-users">
+            <h3>Logged in users</h3>
+        </div>
 
-          <div id="chat-window">
-               <div class="bar">
-                   <h3>KODNINJORNA</h3>
-                   <span id="chat-settings-btn"><i class="fas fa-cogs"></i></span>
-               </div>
-
-               <div id="chat-view"></div>
-               <div id="chat-input">
-                    <input type="text" id="chat-message-input" placeholder="write your message...">
-                    <button type="submit" id="send-message">Send</button>
-              </div>
-          </div>
-
-        <div id="chat-settings" >
+        <div id="chat-window">
             <div class="bar">
-                  <h3>CHAT SETTINGS</h3>
-                  <span id ="chat-settings-window"><i class="fas fa-times"></i></span>
+                <h3>KODNINJORNA</h3>
+                <span id="chat-settings-btn">
+                    <i class="fas fa-cogs"></i>
+                </span>
             </div>
 
-     <form id="create-chat-form">
-            <label>Chat room name</label>
-            <input id="chat-name" required><p></p>
-
-            <label>Theme</label>
-            <input id="chat-theme" required><p></p>
-
-             <h4>Members</h4>
-
-             <div id="public-chat"><input type="checkbox" > <label>Public Chat Room</label></div>
-
-           <div id="search-bar">
-              <input type="text" id="search-user">
-              <button type="submit" id="add-user">Add user</button>
-           </div>
-
-           <div id="chat-room-users"><i class="fas fa-times-circle"></i><p>Karin</p></div>
-
-            <button type="submit" id="create-chat-room">Create chat room</button>
-            <button type="submit" id="delete-chat-room">Delete chat room</button>
-     </form>
+            <div id="chat-view"></div>
+            <div id="chat-input">
+                <input type="text" id="chat-message-input" placeholder="write your message...">
+                <button type="submit" id="send-message">Send</button>
+            </div>
         </div>
+
+        <div id="chat-settings">
+            <div class="bar">
+                <h3>CHAT SETTINGS</h3>
+                <span id="chat-settings-window">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+
+            <form id="create-chat-form">
+                <label>Chat room name</label>
+                <input id="chat-name" required>
+                <p></p>
+
+                <label>Theme</label>
+                <input id="chat-theme" required>
+                <p></p>
+
+                <h4>Members</h4>
+
+                <div id="public-chat">
+                    <input type="checkbox">
+                    <label>Public Chat Room</label>
+                </div>
+
+                <div id="search-bar">
+                    <input type="text" id="search-user">
+                    <button type="submit" id="add-user">Add user</button>
+                </div>
+
+                <div id="chat-room-users">
+                    <i class="fas fa-times-circle"></i>
+                    <p>Karin</p>
+                </div>
+
+                <button type="submit" id="create-chat-room">Create chat room</button>
+                <button type="submit" id="delete-chat-room">Delete chat room</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="user-settings">
+        <div class="bar">
+            <h3>User Settings</h3>
+            <span>
+                <span class="fas fa-times"></span>
+            </span>
+        </div>
+        <div id="user-settings-view"></div>
+    </div>
 
     <!--
         Firebase
@@ -121,7 +142,7 @@
     <script src="js/loggedInUsers.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/chatSettings.js"></script>
-
+    <script src="js/userSettings.js"></script>
 
 </body>
 
