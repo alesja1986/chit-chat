@@ -4,7 +4,7 @@
   background-color:map-get($color,accent1);
   color:map-get($color,bright);
   height: 40px;
-  border-radius:1em;
+  border-radius:0.5em;
   border-style: none;
   cursor: pointer;
   outline:none;
@@ -19,6 +19,7 @@
   height: 35px;
   border: 1px solid #ccc;
   padding-left: 8px;
+  outline: none;
 }
 
 %chat-window{
