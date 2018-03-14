@@ -179,6 +179,14 @@
     </script>
 
     <!-- Handlebars templates -->
+    <script id="logged-in-user-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="logged-in-user">
+            <img src="img/avatars/{{avatar}}.png">
+            <span class="username">{{username}}</span>
+        </div>
+        {{/each}}
+    </script>
     <script id="chat-message-template" type="text/x-handlebars-template">
         {{#each this}}
         <div class="chat-message{{#checkIfCurrentUser uid}}{{body}}{{/checkIfCurrentUser}}">
@@ -198,9 +206,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-    <script src="js/ui.js"></script>
     <script src="js/globalVariables.js"></script>
     <script src="js/globalFunctions.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>
     <script src="js/chatRooms.js"></script>
     <script src="js/chat.js"></script>
