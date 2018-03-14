@@ -27,7 +27,7 @@
     background-color:map-get($color,bright);;
     height: 710px;
 
-  #chat-bar, #settings-bar{
+ .bar{
     display: flex;
     justify-content: space-between;
     background-color: map-get($color, main);
