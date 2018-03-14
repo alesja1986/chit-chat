@@ -16,7 +16,6 @@ ui.regSubmitBtn.on("click", function(e) {
                 "avatar": 'dog',
                 "e-mail": ui.regEmail.val(),
                 "name": ui.regFullname.val(),
-                "theme": 0,
             })
             .then(() => {
                 firebase.database().ref("logged-in").update({

@@ -1,0 +1,9 @@
+#chat-view{
+
+    .chat-message {
+
+        &.this-user-message {
+            background: red;
+        }
+    }
+}

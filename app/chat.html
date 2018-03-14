@@ -14,9 +14,7 @@
     <meta name="author" content="Andreas Lymalm, Alesja Rudaja">
 
     <!-- Font awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
 
     <!-- Stylesheets -->
@@ -29,9 +27,65 @@
 <body>
 
     <!-- 
-        Log out/settings 
+        Log out + user settings 
     -->
     <div id="user-bar">
+        <div id="user-settings">
+            <h3>User Settings</h3>
+            <div id="user-preview">
+                <img src="img/avatars/cat.png">
+            </div>
+            <form id="user-settings-form">
+                <!-- Change avatar -->
+                <div id="avatar-selection">
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="cat" />
+                        <img src="img/avatars/cat.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="cow" />
+                        <img src="img/avatars/cow.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="dog" />
+                        <img src="img/avatars/dog.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="fox" />
+                        <img src="img/avatars/fox.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="hen" />
+                        <img src="img/avatars/hen.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="monkey" />
+                        <img src="img/avatars/monkey.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="panda" />
+                        <img src="img/avatars/panda.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="pig" />
+                        <img src="img/avatars/pig.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="reindeer" />
+                        <img src="img/avatars/reindeer.png">
+                    </label>
+                </div>
+                
+                <!-- Change username -->
+                <input id="username-modification" value="Andreas">
+
+                <!-- Save changes -->
+                <div class="buttons">
+                    <button id="discard-user-settings">Discard</button>
+                    <button type="submit" id="save-user-settings">Save</button>
+                </div>
+            </form>
+        </div>
         <div id="user-settings-button">
             <img class="avatar" src="img/avatars/cat.png">
             <span class="username">Andreas</span>
@@ -44,29 +98,66 @@
     -->
     <div id="main-app">
 
-          <div id="chat-rooms">
-               <h3>Chat Rooms</h3>
-          </div>
+        <div id="chat-rooms">
+            <h3>Chat Rooms</h3>
+        </div>
 
-          <div id="logged-in-users">
-               <h3>Logged in users</h3>
-          </div>
+        <div id="logged-in-users">
+            <h3>Logged in users</h3>
+        </div>
 
-          <div id="chat-window">
-               <div id="chat-bar">
-                   <h3>KODNINJORNA</h3>
-                   <span id="chat-settings-btn"><i class="fas fa-cogs"></i></span>
-               </div>
+        <div id="chat-window">
+            <div class="bar">
+                <h3>KODNINJORNA</h3>
+                <span id="chat-settings-btn">
+                    <i class="fas fa-cogs"></i>
+                </span>
+            </div>
 
-               <div id="chat-view"></div>
-               <div id="chat-input">
-                    <input type="text" id="chat-message-input" placeholder="write your message...">
-                    <button type="submit" id="send-message">Send</button>
-              </div>
-          </div>
+            <div id="chat-view"></div>
+            <div id="chat-input">
+                <input type="text" id="chat-message-input" placeholder="write your message...">
+                <button type="submit" id="send-message">Send</button>
+            </div>
+        </div>
 
-        <div id="chat-settings" >
+        <div id="chat-settings">
+            <div class="bar">
+                <h3>CHAT SETTINGS</h3>
+                <span id="chat-settings-window">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
 
+            <form id="create-chat-form">
+                <label>Chat room name</label>
+                <input id="chat-name" required>
+                <p></p>
+
+                <label>Theme</label>
+                <input id="chat-theme" required>
+                <p></p>
+
+                <h4>Members</h4>
+
+                <div id="public-chat">
+                    <input type="checkbox">
+                    <label>Public Chat Room</label>
+                </div>
+
+                <div id="search-bar">
+                    <input type="text" id="search-user">
+                    <button type="submit" id="add-user">Add user</button>
+                </div>
+
+                <div id="chat-room-users">
+                    <i class="fas fa-times-circle"></i>
+                    <p>Karin</p>
+                </div>
+
+                <button type="submit" id="create-chat-room">Create chat room</button>
+                <button type="submit" id="delete-chat-room">Delete chat room</button>
+            </form>
         </div>
     </div>
 
@@ -96,6 +187,19 @@
         </div>
         {{/each}}
     </script>
+    <script id="chat-message-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="chat-message{{#checkIfCurrentUser uid}}{{body}}{{/checkIfCurrentUser}}">
+            <div class="chat-content">
+                <img src="img/avatars/{{avatar}}.png" class="chat-avatar">
+                <p class="chat-text">{{text}}</p>
+            </div>
+            <div class="chat-meta">
+                {{username}}, {{timestamp}}
+            </div>
+        </div>
+        {{/each}}
+    </script>
 
     <!-- JavaScript -->
     <!-- jQuery -->
@@ -106,8 +210,12 @@
     <script src="js/globalFunctions.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>
+    <script src="js/chatRooms.js"></script>
+    <script src="js/chat.js"></script>
     <script src="js/loggedInUsers.js"></script>
     <script src="js/logout.js"></script>
+    <script src="js/chatSettings.js"></script>
+    <script src="js/userSettings.js"></script>
 
 </body>
 
