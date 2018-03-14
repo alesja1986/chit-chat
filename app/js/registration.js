@@ -15,7 +15,6 @@ ui.regSubmitBtn.on("click", function(e) {
                 "e-mail": ui.regEmail.val(),
                 "logged-in": true,
                 "name": ui.regFullname.val(),
-                "theme": 0,
             })
             .then(() => window.location.replace("../chat.html"));
             return;
