@@ -132,13 +132,32 @@
         firebase.initializeApp(config);
     </script>
 
+    <!-- Handlebars templates -->
+    <script id="chat-message-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="chat-message{{#checkIfCurrentUser uid}}{{body}}{{/checkIfCurrentUser}}">
+            <div class="chat-content">
+                <img src="img/avatars/{{avatar}}.png" class="chat-avatar">
+                <p class="chat-text">{{text}}</p>
+            </div>
+            <div class="chat-meta">
+                {{username}}, {{timestamp}}
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
     <!-- JavaScript -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-    <script src="js/globalVariables.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/globalVariables.js"></script>
+    <script src="js/globalFunctions.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+    <script src="js/chatRooms.js"></script>
+    <script src="js/chat.js"></script>
     <script src="js/loggedInUsers.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/chatSettings.js"></script>
