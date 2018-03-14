@@ -13,7 +13,7 @@ ui.regSubmitBtn.on("click", function(e) {
             sessionStorage.UID = firebase.auth().currentUser.uid;
             firebase.database().ref("all-users/" + sessionStorage.UID).set({
                 "username": ui.regUsername.val(),
-                "avatar": 'default',
+                "avatar": 'dog',
                 "e-mail": ui.regEmail.val(),
                 "name": ui.regFullname.val(),
                 "theme": 0,
