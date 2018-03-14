@@ -53,7 +53,7 @@
           </div>
 
           <div id="chat-window">
-               <div id="chat-bar">
+               <div class="bar">
                    <h3>KODNINJORNA</h3>
                    <span id="chat-settings-btn"><i class="fas fa-cogs"></i></span>
                </div>
@@ -66,9 +66,33 @@
           </div>
 
         <div id="chat-settings" >
+            <div class="bar">
+                  <h3>CHAT SETTINGS</h3>
+                  <span id ="chat-settings-window"><i class="fas fa-times"></i></span>
+            </div>
 
+     <form id="create-chat-form">
+            <label>Chat room name</label>
+            <input id="chat-name" required><p></p>
+
+            <label>Theme</label>
+            <input id="chat-theme" required><p></p>
+
+             <h4>Members</h4>
+
+             <div id="public-chat"><input type="checkbox" > <label>Public Chat Room</label></div>
+
+           <div id="search-bar">
+              <input type="text" id="search-user">
+              <button type="submit" id="add-user">Add user</button>
+           </div>
+
+           <div id="chat-room-users"><i class="fas fa-times-circle"></i><p>Karin</p></div>
+
+            <button type="submit" id="create-chat-room">Create chat room</button>
+            <button type="submit" id="delete-chat-room">Delete chat room</button>
+     </form>
         </div>
-    </div>
 
     <!--
         Firebase
@@ -96,6 +120,8 @@
     <script src="js/ui.js"></script>
     <script src="js/loggedInUsers.js"></script>
     <script src="js/logout.js"></script>
+    <script src="js/chatSettings.js"></script>
+
 
 </body>
 
