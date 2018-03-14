@@ -1,4 +1,4 @@
 #user-settings {
+    @extend %chat-window;
     display: none;
-    border: 1px solid black;
 }
