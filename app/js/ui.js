@@ -27,4 +27,5 @@ const ui = {
 
     // User settings
     userSettings: $("#user-settings"),
+    userSettingsClose: $("#user-settings > .bar > span")
 }
