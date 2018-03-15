@@ -147,6 +147,12 @@
         {{/each}}
     </script>
 
+    <script id="chat-room-template" type="text/x-handlebars-template">
+        {{#each this}}
+          <div class="chat-room" data-chat-room-id ={{@key}}>{{settings.name}}</div>
+        {{/each}}
+    </script>
+
     <!-- JavaScript -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

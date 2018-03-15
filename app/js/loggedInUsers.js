@@ -11,6 +11,5 @@ firebase.database().ref("logged-in").on("value", (snapshotLoggedIn) => {
                     loggedInUsers.push(usersInfo[uid]);
                 }
             }
-            console.log(loggedInUsers);
         });
 });

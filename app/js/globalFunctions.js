@@ -10,8 +10,9 @@ function getHTMLFromTemplate(templateId, object){
 
 // Sort object array by key, assuming the value is a string
 function sortObjectArrayByStringKey(arr, key){
-    arr.sort(function(a, b){
-        console.log(a[key] + ", " + b[key]);
+
+
+   arr.sort(function(a, b){
         if(a[key] < b[key])
             return -1;
         if(a[key] > b[key])
