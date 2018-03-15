@@ -73,6 +73,8 @@ function sendMessage() {
             "uid": sessionStorage.UID
         });
     }
+
+    ui.chatMessageInput.val('');
 }
 
 
@@ -89,4 +91,5 @@ function getTimeStampAsString() {
     return  yyyy + '-'+(mm < 10 ? `0${mm}` : mm) + '-'+(dd < 10 ? `0${dd}` : dd)+' '+hour+ ':'+minut;
 
 }
+
 
