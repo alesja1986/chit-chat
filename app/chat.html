@@ -33,7 +33,7 @@
         <div id="user-settings">
             <h3>User Settings</h3>
             <div id="user-preview">
-                <img src="img/avatars/cat.png">
+                <img src="img/avatars/none.png">
             </div>
             <form id="user-settings-form">
                 <!-- Change avatar -->
@@ -77,7 +77,7 @@
                 </div>
                 
                 <!-- Change username -->
-                <input id="username-modification" value="Andreas">
+                <input id="username-modification" value="">
 
                 <!-- Save changes -->
                 <div class="buttons">
@@ -87,8 +87,8 @@
             </form>
         </div>
         <div id="user-settings-button">
-            <img class="avatar" src="img/avatars/cat.png">
-            <span class="username">Andreas</span>
+            <img class="avatar" src="img/avatars/none.png">
+            <span class="username"></span>
         </div>
         <button id="logout-button">Log Out</button>
     </div>
@@ -135,13 +135,21 @@
                 <p></p>
 
                 <label>Theme</label>
-                <input id="chat-theme" required>
-                <p></p>
+                <div class="chat-theme" required>
+                <img src="img/themes/bg1.png">
+                <img src="img/themes/bg2.png">
+                <img src="img/themes/bg3.png">
+                <img src="img/themes/bg4.png">
+                <img src="img/themes/bg5.png">
+                <img src="img/themes/bg6.png">
+                <img src="img/themes/bg7.png">
+                </div>
 
                 <h4>Members</h4>
 
                 <div id="public-chat">
-                    <input type="checkbox">
+
+                     <input type="checkbox">
                     <label>Public Chat Room</label>
                 </div>
 
