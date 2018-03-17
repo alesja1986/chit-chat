@@ -26,8 +26,16 @@ const ui = {
 
     // User corner info
     userBar: $("#user-bar"),
-    userSettingsBtn: $("#user-settings-button"),
     userLogoutBtn: $("#logout-button"),
+    userSettingsBtn: $("#user-settings-button"),
+    userSettingsForm: $("#user-settings-form"),
+    userAvatarSelection: $("#avatar-selection"),
+    userAvatar: $("#user-settings-button > .avatar"),
+    userUsername: $("#user-settings-button > .username"),
+    userAvatarPreview: $("#user-preview > img"),
+    userUsernameInput: $("#username-modification"),
+    userSettingsDiscardButton: $("#discard-user-settings"),
+    userSettingsSaveButton: $("#save-user-settings"),
 
     // User settings
     userSettings: $("#user-settings"),

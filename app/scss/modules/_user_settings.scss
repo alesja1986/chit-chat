@@ -2,11 +2,12 @@
     $settingsColor: map-get($color, accent1);
 
     background: $settingsColor;
+    z-index: 1;
     display: none;
     position: absolute;
     width: 300px;
     top: 85px;
-    right: 83px;
+    right: 0px;
     border-radius: 1em;
     padding: 1em;
 
