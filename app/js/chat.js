@@ -21,7 +21,27 @@ function loadChat(){
             m.avatar = allUsers[m.uid].avatar;
         }
 
-        messages.pop(); // Hack to make listener for new messages work.
+
+        /*
+        let out = document.getElementById("chat-view");
+
+        var c = 0;
+        var add = setInterval(function() {
+            // allow 1px inaccuracy by adding 1
+            var isScrolledToBottom = out.scrollHeight - out.clientHeight <= out.scrollTop + 1;
+            console.log(out.scrollHeight - out.clientHeight,  out.scrollTop + 1);
+            var newElement = document.createElement("div");
+            newElement.innerHTML = c++;
+            out.appendChild(newElement);
+            // scroll to bottom if isScrolledToBotto
+            if(isScrolledToBottom)
+                out.scrollTop = out.scrollHeight - out.clientHeight;
+        }, 1000);
+*/
+
+
+        messages.pop();
+
         // Render HTML
         let HTML = getHTMLFromTemplate("#chat-message-template", messages);
         ui.chatView.children().remove();
@@ -32,8 +52,9 @@ function loadChat(){
             let newMessage = snapshot.val();
 
             // Add user info to specific messages
-            newMessage.username = allUsers[newMessage.uid].username;
-            newMessage.avatar = allUsers[newMessage.uid].avatar;
+                newMessage.username = allUsers[newMessage.uid].username;
+                newMessage.avatar = allUsers[newMessage.uid].avatar;
+
 
             // Render HTML
             let HTML = getHTMLFromTemplate("#chat-message-template", [newMessage]);
@@ -82,3 +103,4 @@ Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
     else
         return "";
 });
+
