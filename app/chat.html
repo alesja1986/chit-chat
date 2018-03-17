@@ -201,6 +201,10 @@
         {{/each}}
     </script>
 
+    <script id="chat-room-template" type="text/x-handlebars-template">
+          <div class="chat-room" data-chat-room-id ={{uid}}>{{settings.name}}</div>
+    </script>
+
     <!-- JavaScript -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -216,6 +220,7 @@
     <script src="js/logout.js"></script>
     <script src="js/chatSettings.js"></script>
     <script src="js/userSettings.js"></script>
+    <script src="js/chatPageInitial.js"></script>
 
 </body>
 

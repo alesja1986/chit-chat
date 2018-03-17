@@ -11,7 +11,7 @@ firebase.database().ref("logged-in").on("value", (snapshotLoggedIn) => {
                     loggedInUsers.push(usersInfo[uid]);
                 }
             }
-
+      
             sortObjectArrayByStringKey(loggedInUsers, "username");
 
             let HTML = getHTMLFromTemplate("#logged-in-user-template", loggedInUsers);

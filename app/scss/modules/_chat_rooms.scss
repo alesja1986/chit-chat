@@ -1,0 +1,13 @@
+#chat-rooms {
+    .chat-room {
+        width: 100%;
+        padding: 10px 1em 0;
+        
+        text-align: left;
+        font-size: 20px;
+
+        &:hover {
+            background: lighten(map-get($color, darkgrey), 10%);
+        }
+    }
+}

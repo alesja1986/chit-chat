@@ -22,6 +22,7 @@ const ui = {
 
     // Logged in users
     loggedInUsers: $("#logged-in-users"),
+    chatRooms: $("#chat-rooms"),
 
     // User corner info
     userBar: $("#user-bar"),
