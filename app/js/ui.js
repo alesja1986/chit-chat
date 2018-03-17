@@ -10,6 +10,7 @@ const ui = {
     mainApp: $("#main-app"),
 
     //chat window
+    chatWindow: $("#chat-window"),
     sendMessageBtn: $("#send-message"),
     chatMessageInput:$('#chat-message-input'),
     chatSettingsBtn: $("#chat-settings-btn"),
@@ -18,6 +19,7 @@ const ui = {
     openChatSettingsBtn: $("#chat-settings-btn"),
 
     //chat settings window
+    chatSettings: $("#chat-settings"),
     closeChatSettingsBtn: $('#chat-settings-window'),
     createChatRoomBtn: $('#create-chat-room'),
     deleteChatRoomBtn: $('#delete-chat-room'),

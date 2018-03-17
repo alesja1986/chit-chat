@@ -22,32 +22,44 @@ function loadChat(){
         }
 
         messages.pop();
-        $("#chat-settings").hide();
 
         // Render HTML
         let HTML = getHTMLFromTemplate("#chat-message-template", messages);
         ui.chatView.children().remove();
         ui.chatView.append(HTML);
 
+        // Hide chat settings and show chat view, if not already so
+        ui.chatSettings.hide();
+        ui.closeChatSettingsBtn.hide();
+        ui.chatWindow.show();
+
+        // Scroll to bottom
+        ui.chatView.scrollTop(ui.chatView[0].scrollHeight);
+
         // Register listener for new messages
         firebase.database().ref("chatrooms/" + activeChat + "/messages" ).limitToLast(1).on('child_added' , function (snapshot) {
             let newMessage = snapshot.val();
 
             // Add user info to specific messages
-
-                newMessage.username = allUsers[newMessage.uid].username;
-                newMessage.avatar = allUsers[newMessage.uid].avatar;
-
-
+            newMessage.username = allUsers[newMessage.uid].username;
+            newMessage.avatar = allUsers[newMessage.uid].avatar;
 
             // Render HTML
             let HTML = getHTMLFromTemplate("#chat-message-template", [newMessage]);
+
+            // Let scroll follow if on bottom
+            var isScrolledToBottom = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight <= ui.chatView[0].scrollTop + 1;
             ui.chatView.append(HTML);
+            if(isScrolledToBottom){
+                //ui.chatView.animate({scrollTop: ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight}, 1000);
+                ui.chatView[0].scrollTop = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight;
+            }
         })
     });
 
 }
 
+// Send a message in chat room
 function sendMessage() {
     let messageText = ui.chatMessageInput.val();
     let time = getTimeStampAsString();
@@ -72,8 +84,6 @@ function getTimeStampAsString() {
     let hour = date.getHours();  //hämtar timmar
     let minut = date.getMinutes(); // hämtar minuter
 
-
-
     return  yyyy + '-' + 
         (mm < 10 ? `0${mm}` : mm) + '-' + 
         (dd < 10 ? `0${dd}` : dd) + ' ' +
@@ -82,6 +92,7 @@ function getTimeStampAsString() {
 
 }
 
+// Adds a special current user class to message, if so
 Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
     if(messageUser === sessionStorage.UID)
         return " this-user-message";

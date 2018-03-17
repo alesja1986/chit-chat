@@ -1,14 +1,19 @@
 ui.openChatSettingsBtn.click(function(){
-      $("#chat-settings").show();
-      ui.closeChatSettingsBtn.show();
-    $(".chat-content").hide();
+    // Hide chat view
+    ui.chatWindow.hide();
 
+    // Show chat settings
+    ui.chatSettings.show();
+    ui.closeChatSettingsBtn.show();
 });
 
 ui.closeChatSettingsBtn.click(function(){
+    // Hide chat settings
+    ui.chatSettings.hide();
     ui.closeChatSettingsBtn.hide();
-    $("#chat-settings").hide();
-    $(".chat-content").show();
+
+    // Show chat view
+    ui.chatWindow.show();
 });
 
 
