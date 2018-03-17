@@ -7,6 +7,7 @@ function loadChat(){
         let chatroom = snapshotChatroom.val();
         
         // Chat title and background
+        $("#chat-settings").hide();
         ui.chatBarTitle.text(chatroom.settings.name);
         ui.chatView.css("background-image", `url(../img/themes/${chatroom.settings.theme}.png)`);  
 
@@ -20,7 +21,6 @@ function loadChat(){
             m.username = allUsers[m.uid].username;
             m.avatar = allUsers[m.uid].avatar;
         }
-
 
         messages.pop();
 
