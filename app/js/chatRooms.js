@@ -1,6 +1,11 @@
-// Load chat rooms at page load
-loadChatRooms();
+// Listens for click on chat room annd loads that chat
+ui.chatRooms.on("click", ".chat-room", function(){
+    activeChat = $(this).attr("data-chat-room-id");
+    loadChat();
+});
 
+
+// Load chat rooms
 function loadChatRooms() {
     firebase.database().ref("chatrooms").on('child_added', snapshot => {
         let chatRooms = snapshot.val();
@@ -11,9 +16,3 @@ function loadChatRooms() {
         ui.chatRooms.append(html);
     });
 }
-
-// Listens for click on chat room annd loads that chat
-ui.chatRooms.on("click", ".chat-room", function(){
-    activeChat = $(this).attr("data-chat-room-id");
-    loadChat();
-});

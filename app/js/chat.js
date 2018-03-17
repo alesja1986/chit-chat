@@ -1,4 +1,4 @@
-loadChat();
+ui.sendMessageBtn.on('click',sendMessage);
 
 // Load chat
 function loadChat(){
@@ -42,8 +42,6 @@ function loadChat(){
     });
 
 }
-
-ui.sendMessageBtn.on('click',sendMessage);
 
 function sendMessage() {
     let messageText = ui.chatMessageInput.val();
