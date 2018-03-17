@@ -12,7 +12,3 @@ ui.closeChatSettingsBtn.click(function(){
 });
 
 
-
-$('.chat-theme').click(function(){
-
-});

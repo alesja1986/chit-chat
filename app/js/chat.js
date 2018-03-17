@@ -21,9 +21,8 @@ function loadChat(){
             m.avatar = allUsers[m.uid].avatar;
         }
 
-
         messages.pop();
-
+        $("#chat-settings").hide();
 
         // Render HTML
         let HTML = getHTMLFromTemplate("#chat-message-template", messages);
