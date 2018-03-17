@@ -2,6 +2,7 @@
     $settingsColor: map-get($color, accent1);
 
     background: $settingsColor;
+    z-index: 1;
     display: none;
     position: absolute;
     width: 300px;

@@ -27,6 +27,8 @@ const ui = {
     // User corner info
     userBar: $("#user-bar"),
     userSettingsBtn: $("#user-settings-button"),
+    userAvatar: $("#user-settings-button > .avatar"),
+    userUsername: $("#user-settings-button > .username"),
     userLogoutBtn: $("#logout-button"),
 
     // User settings
