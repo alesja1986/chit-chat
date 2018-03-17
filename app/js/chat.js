@@ -1,14 +1,6 @@
+ui.sendMessageBtn.on('click',sendMessage);
 
-Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
-    if(messageUser === sessionStorage.UID)
-        return " this-user-message";
-    else
-        return "";
-});
-
-
-loadChat();
-
+// Load chat
 function loadChat(){
     firebase.database().ref("chatrooms/" + activeChat).once("value")
     .then((snapshotChatroom) => {
@@ -29,6 +21,7 @@ function loadChat(){
             m.avatar = allUsers[m.uid].avatar;
         }
 
+<<<<<<< HEAD
         let out = document.getElementById("chat-view");
 
         var c = 0;
@@ -47,19 +40,27 @@ function loadChat(){
 
 
         messages.pop();
+=======
+        messages.pop(); // Hack to make listener for new messages work.
+>>>>>>> ba17dd61b2b4d5ccbbea4cae2c5bbdbaf45a3978
         // Render HTML
         let HTML = getHTMLFromTemplate("#chat-message-template", messages);
+        ui.chatView.children().remove();
         ui.chatView.append(HTML);
 
-             // Register lissener for new messages
-            firebase.database().ref("chatrooms/" + activeChat + "/messages" ).limitToLast(1).on('child_added' , function (snapshot) {
-
-         let newMessage = snapshot.val();
+        // Register listener for new messages
+        firebase.database().ref("chatrooms/" + activeChat + "/messages" ).limitToLast(1).on('child_added' , function (snapshot) {
+            let newMessage = snapshot.val();
 
             // Add user info to specific messages
+<<<<<<< HEAD
                 newMessage.username = allUsers[newMessage.uid].username;
                 newMessage.avatar = allUsers[newMessage.uid].avatar;
 
+=======
+            newMessage.username = allUsers[newMessage.uid].username;
+            newMessage.avatar = allUsers[newMessage.uid].avatar;
+>>>>>>> ba17dd61b2b4d5ccbbea4cae2c5bbdbaf45a3978
 
             // Render HTML
             let HTML = getHTMLFromTemplate("#chat-message-template", [newMessage]);
@@ -68,12 +69,6 @@ function loadChat(){
     });
 
 }
-
-
-
-
-ui.sendMessageBtn.on('click',sendMessage);
-
 
 function sendMessage() {
     let messageText = ui.chatMessageInput.val();
@@ -89,7 +84,7 @@ function sendMessage() {
     ui.chatMessageInput.val('');
 }
 
-
+// Get time stamp for message
 function getTimeStampAsString() {
 
     let date = new  Date();
@@ -100,9 +95,26 @@ function getTimeStampAsString() {
     let minut = date.getMinutes(); // hämtar minuter
 
 
+<<<<<<< HEAD
     return  yyyy + '-'+(mm < 10 ? `0${mm}` : mm) + '-'+(dd < 10 ? `0${dd}` : dd)+' '+(hour < 10 ? `0${hour}` : hour+ ':'+(minut < 10 ? `0${minut}` : minut));
 
 }
 
 
 
+=======
+    return  yyyy + '-' + 
+        (mm < 10 ? `0${mm}` : mm) + '-' + 
+        (dd < 10 ? `0${dd}` : dd) + ' ' +
+        (hour < 10 ? `0${hour}` : hour) + ':' + 
+        (minut < 10 ? `0${minut}` : minut);
+
+}
+
+Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
+    if(messageUser === sessionStorage.UID)
+        return " this-user-message";
+    else
+        return "";
+});
+>>>>>>> ba17dd61b2b4d5ccbbea4cae2c5bbdbaf45a3978

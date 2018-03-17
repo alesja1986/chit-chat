@@ -1,0 +1,18 @@
+#logged-in-users {
+
+    .logged-in-user {
+        display: flex;
+        align-items: center;
+        margin: 1em;
+
+        img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .username {
+            padding-left: 10px;
+            font-size: 20px;
+        }
+    }
+}

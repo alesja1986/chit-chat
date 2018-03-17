@@ -27,9 +27,65 @@
 <body>
 
     <!-- 
-        Log out/settings 
+        Log out + user settings 
     -->
     <div id="user-bar">
+        <div id="user-settings">
+            <h3>User Settings</h3>
+            <div id="user-preview">
+                <img src="img/avatars/cat.png">
+            </div>
+            <form id="user-settings-form">
+                <!-- Change avatar -->
+                <div id="avatar-selection">
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="cat" />
+                        <img src="img/avatars/cat.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="cow" />
+                        <img src="img/avatars/cow.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="dog" />
+                        <img src="img/avatars/dog.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="fox" />
+                        <img src="img/avatars/fox.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="hen" />
+                        <img src="img/avatars/hen.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="monkey" />
+                        <img src="img/avatars/monkey.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="panda" />
+                        <img src="img/avatars/panda.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="pig" />
+                        <img src="img/avatars/pig.png">
+                    </label>
+                    <label class="avatar">
+                        <input type="radio" name="avatar" value="reindeer" />
+                        <img src="img/avatars/reindeer.png">
+                    </label>
+                </div>
+                
+                <!-- Change username -->
+                <input id="username-modification" value="Andreas">
+
+                <!-- Save changes -->
+                <div class="buttons">
+                    <button id="discard-user-settings">Discard</button>
+                    <button type="submit" id="save-user-settings">Save</button>
+                </div>
+            </form>
+        </div>
         <div id="user-settings-button">
             <img class="avatar" src="img/avatars/cat.png">
             <span class="username">Andreas</span>
@@ -113,16 +169,6 @@
         </div>
     </div>
 
-    <div id="user-settings">
-        <div class="bar">
-            <h3>User Settings</h3>
-            <span>
-                <span class="fas fa-times"></span>
-            </span>
-        </div>
-        <div id="user-settings-view"></div>
-    </div>
-
     <!--
         Firebase
     -->
@@ -141,6 +187,14 @@
     </script>
 
     <!-- Handlebars templates -->
+    <script id="logged-in-user-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="logged-in-user">
+            <img src="img/avatars/{{avatar}}.png">
+            <span class="username">{{username}}</span>
+        </div>
+        {{/each}}
+    </script>
     <script id="chat-message-template" type="text/x-handlebars-template">
         {{#each this}}
         <div class="chat-message{{#checkIfCurrentUser uid}}{{body}}{{/checkIfCurrentUser}}">
@@ -156,9 +210,7 @@
     </script>
 
     <script id="chat-room-template" type="text/x-handlebars-template">
-        {{#each this}}
-          <div class="chat-room" data-chat-room-id ={{@key}}>{{settings.name}}</div>
-        {{/each}}
+          <div class="chat-room" data-chat-room-id ={{uid}}>{{settings.name}}</div>
     </script>
 
     <!-- JavaScript -->
@@ -166,9 +218,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-    <script src="js/ui.js"></script>
     <script src="js/globalVariables.js"></script>
     <script src="js/globalFunctions.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/handlebars-v4.0.11.js"></script>
     <script src="js/chatRooms.js"></script>
     <script src="js/chat.js"></script>
@@ -176,6 +228,7 @@
     <script src="js/logout.js"></script>
     <script src="js/chatSettings.js"></script>
     <script src="js/userSettings.js"></script>
+    <script src="js/chatPageInitial.js"></script>
 
 </body>
 
