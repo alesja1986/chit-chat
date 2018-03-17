@@ -29,7 +29,20 @@ function loadChat(){
             m.avatar = allUsers[m.uid].avatar;
         }
 
+        let out = document.getElementById("chat-view");
 
+        var c = 0;
+        var add = setInterval(function() {
+            // allow 1px inaccuracy by adding 1
+            var isScrolledToBottom = out.scrollHeight - out.clientHeight <= out.scrollTop + 1;
+            console.log(out.scrollHeight - out.clientHeight,  out.scrollTop + 1);
+            var newElement = document.createElement("div");
+            newElement.innerHTML = c++;
+            out.appendChild(newElement);
+            // scroll to bottom if isScrolledToBotto
+            if(isScrolledToBottom)
+                out.scrollTop = out.scrollHeight - out.clientHeight;
+        }, 1000);
 
 
 
@@ -46,7 +59,6 @@ function loadChat(){
             // Add user info to specific messages
                 newMessage.username = allUsers[newMessage.uid].username;
                 newMessage.avatar = allUsers[newMessage.uid].avatar;
-
 
 
             // Render HTML
@@ -88,8 +100,9 @@ function getTimeStampAsString() {
     let minut = date.getMinutes(); // hämtar minuter
 
 
-    return  yyyy + '-'+(mm < 10 ? `0${mm}` : mm) + '-'+(dd < 10 ? `0${dd}` : dd)+' '+hour+ ':'+minut;
+    return  yyyy + '-'+(mm < 10 ? `0${mm}` : mm) + '-'+(dd < 10 ? `0${dd}` : dd)+' '+(hour < 10 ? `0${hour}` : hour+ ':'+(minut < 10 ? `0${minut}` : minut));
 
 }
+
 
 
