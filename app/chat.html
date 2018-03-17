@@ -211,7 +211,7 @@
     </script>
 
     <script id="chat-room-template" type="text/x-handlebars-template">
-          <div class="chat-room" data-chat-room-id ={{uid}}>{{settings.name}}</div>
+          <div class="chat-room{{#checkIfDefaultRoom chatid}}{{body}}{{/checkIfDefaultRoom}}" data-chat-room-id ={{chatid}}>{{settings.name}}</div>
     </script>
 
     <!-- JavaScript -->

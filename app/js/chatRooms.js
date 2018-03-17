@@ -11,10 +11,18 @@ ui.chatRooms.on("click", ".chat-room", function(){
 function loadChatRooms() {
     firebase.database().ref("chatrooms").on('child_added', snapshot => {
         let chatRooms = snapshot.val();
-        chatRooms.uid = snapshot.key;
+        chatRooms.chatid = snapshot.key;
 
         // Render HTML
-        let html = getHTMLFromTemplate('#chat-room-template',chatRooms);
+        let html = getHTMLFromTemplate('#chat-room-template', chatRooms);
         ui.chatRooms.append(html);
     });
 }
+
+// Adds a special active class to HTML if it's the default chat room
+Handlebars.registerHelper("checkIfDefaultRoom", (chatid, options) => {
+    if(chatid === defaultChat)
+        return " active-chat";
+    else
+        return "";
+});
