@@ -1,6 +1,8 @@
 // Listens for click on chat room annd loads that chat
 ui.chatRooms.on("click", ".chat-room", function(){
     activeChat = $(this).attr("data-chat-room-id");
+    ui.chatRooms.children().removeClass("active-chat");
+    $(this).addClass("active-chat");
     loadChat();
 });
 
