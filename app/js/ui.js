@@ -19,6 +19,8 @@ const ui = {
 
     //chat settings window
     closeChatSettingsBtn: $('#chat-settings-window'),
+    createChatRoomBtn: $('#create-chat-room'),
+    deleteChatRoomBtn: $('#delete-chat-room'),
 
     // Logged in users
     loggedInUsers: $("#logged-in-users"),
