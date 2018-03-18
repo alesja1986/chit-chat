@@ -113,6 +113,7 @@ Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
         return "";
 });
 
+// Shortens timestamp, by removing seconds and milliseconds
 Handlebars.registerHelper("shortenTimestamp", (timestamp, options) => {
     return timestamp.slice(0, 16);
 });

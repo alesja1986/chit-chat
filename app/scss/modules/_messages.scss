@@ -1,56 +1,66 @@
 
 #chat-view {
 
-    .chat-content {
-        width: 80%;
-        background-color: map-get($color, accent3);
-        color: map-get($color, dark);
-        display: flex;
-        border: 1px solid darkslategrey;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 0.5em 0.5em 0.5em;
-        opacity: 0.9;
+    /* All users */
+    .chat-message {
 
-        p {
-            margin: 2em 0.5em 0 0.5em;
+        .chat-content {
+            width: 80%;
+            background-color: map-get($color, accent3);
+            color: map-get($color, dark);
+            display: flex;
+            align-items: center;
+            border: 1px solid darkslategrey;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 0.5em 0.5em 0;
+            opacity: 0.9;
+
+            p {
+                margin: 0 0.5em;
+            }
+
+            img {
+                align-self: flex-start;
+                width: 70px;
+                height: 70px;
+                margin: 0.2em;
+            }
         }
 
-        img {
-            width: 70px;
-            height: 70px;
-            margin: 0.2em;
+        .chat-meta {
+            color: map-get($color, dark);
+            text-align: right;
+            margin-right: 20%;
         }
     }
 
-    .chat-meta {
-        color: map-get($color, dark);
-        text-align: right;
-        margin-right: 20%;
-    }
-
-    .this-user-message .chat-content {
-        background-color: map-get($color, accent2);
-        color: map-get($color, bright);
-        display: flex;
-        justify-content: right;
-        margin: 0.5em 10em 0.5em;
-
-    }
-
-    .this-user-message  {
+    /* Current user */
+    .this-user-message {
         color: map-get($color, bright);
         text-align: left;
-    }
 
-    .this-user-message  .chat-meta {
-        text-align: left;
-        margin-left: 20%;
-    }
+        .chat-content {
+            background-color: map-get($color, accent2);
+            color: map-get($color, bright);
+            display: flex;
+            justify-content: right;
+            margin: .5em 10em 0;
 
-    .this-user-message img{
-        justify-content: right;
-        order: 2;
-        margin: 0.2em;
+            p {
+                flex-grow: 1;
+            }
+
+            img{
+                justify-content: right;
+                order: 2;
+                margin: 0.2em;
+            }
+        }
+
+        .chat-meta {
+            text-align: left;
+            margin-left: 20%;
+        }
     }
 }
