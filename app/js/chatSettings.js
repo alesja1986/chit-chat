@@ -19,25 +19,27 @@ ui.closeChatSettingsBtn.click(function() {
     ui.chatWindow.show();
     });
 
-
-
 function showThisChatName() {
-    ui.chatNameInput = firebase.database().ref("chatrooms/" + activeChat + "/settings").once('value', snapshot => {
+        firebase.database().ref("chatrooms/" + activeChat + "/settings").once('value', snapshot => {
         ui.chatNameInput.val(snapshot.val().name);
+        sendNewTheme=snapshot.val().theme;
     });
 }
 
-//save clicked img name
+   //save clicked img name
     $('.chat-theme img').on("click", function () {
         let newTheme = this.src;
         let newThemeLength = newTheme.length;
         sendNewTheme = newTheme.substring(newThemeLength - 7, newThemeLength - 4);
-        return sendNewTheme
+        $(this).addClass('borderClass');
+
+            return sendNewTheme
     });
 
     //send new name and theme to db
     ui.createChatRoomBtn.on("click", function () {
         let newChatName = ui.chatNameInput.val();
+
         firebase.database().ref("chatrooms/" + activeChat + "/settings").update({
             "name": newChatName,
             "theme": sendNewTheme
