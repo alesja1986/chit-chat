@@ -1,5 +1,6 @@
-// Send message when message button is clicked
+// Send message when message button is clicked or ENTER key (13) is pressed
 ui.sendMessageBtn.on('click', sendMessage);
+ui.chatMessageInput.keypress(e => e.which == 13 ? sendMessage() : "");
 
 // Load chat
 function loadChat(newChat){
