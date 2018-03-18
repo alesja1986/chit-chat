@@ -2,7 +2,7 @@ ui.userSettingsBtn.on("click", () => ui.userSettings.toggle());
 
 // Load user corner info + settings
 function loadUser() {
-    let currentUser = allUsers[sessionStorage.UID];
+    let currentUser = allUsers[localStorage.UID];
 
     // Load user corner info
     ui.userAvatar.attr("src", `img/avatars/${currentUser.avatar}.png`);
@@ -17,7 +17,7 @@ function loadUser() {
 // Discard user settings button
 ui.userSettingsDiscardButton.on("click", e => {
     e.preventDefault();
-    let currentUser = allUsers[sessionStorage.UID];
+    let currentUser = allUsers[localStorage.UID];
 
     // Load previous user settings
     ui.userAvatarPreview.attr("src", `img/avatars/${currentUser.avatar}.png`);
@@ -33,7 +33,7 @@ ui.userSettingsForm.on("submit", e => {
 
     // Save in database and reload page
     let newAvatar = $('input[name=avatar]:checked', '#user-settings-form').val();
-    firebase.database().ref("all-users/" + sessionStorage.UID).update({
+    firebase.database().ref("all-users/" + localStorage.UID).update({
         "avatar": newAvatar,
         "username": ui.userUsernameInput.val()
     })

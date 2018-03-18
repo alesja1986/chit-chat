@@ -83,7 +83,7 @@ function sendMessage(){
         firebase.database().ref("chatrooms/" + activeChat + "/messages" ).push({
            "text": messageText,
             "timestamp":time,
-            "uid": sessionStorage.UID
+            "uid": localStorage.UID
         });
     }
 
@@ -107,7 +107,7 @@ function getCurrentTime() {
 
 // Adds a special current user class to message, if so
 Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
-    if(messageUser === sessionStorage.UID)
+    if(messageUser === localStorage.UID)
         return " this-user-message";
     else
         return "";

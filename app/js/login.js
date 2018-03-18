@@ -1,6 +1,8 @@
 $("#login").on("submit", e => {
     e.preventDefault();
-    logIn();
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(() => logIn())
+        .catch(error => console.log(error));
 });
 
 function logIn(){
@@ -8,11 +10,11 @@ function logIn(){
     let password = $("#login .password").val();
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
-            sessionStorage.UID = firebase.auth().currentUser.uid;
+            localStorage.UID = firebase.auth().currentUser.uid;
             firebase.database().ref("logged-in").update({
-                [sessionStorage.UID]: true,
+                [localStorage.UID]: true,
             })
             .then(() => window.location.replace("../chat.html"))
         })
-        .catch(() => console.log("Kunde inte logga in :("));
+        .catch(error => console.log(error));
 }

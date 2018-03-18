@@ -1,7 +1,4 @@
-// User ID
-if(!sessionStorage.UID) 
-    sessionStorage.UID = null;
-    
+
 // Default chat room
 let defaultChat = "id1";
 // Active chat room

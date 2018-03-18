@@ -10,8 +10,8 @@ ui.regSubmitBtn.on("click", function(e) {
     // Create user with e-mail and password
     firebase.auth().createUserWithEmailAndPassword(ui.regEmail.val(), ui.regPassword.val())
         .then(() => {
-            sessionStorage.UID = firebase.auth().currentUser.uid;
-            firebase.database().ref("all-users/" + sessionStorage.UID).set({
+            localStorage.UID = firebase.auth().currentUser.uid;
+            firebase.database().ref("all-users/" + localStorage.UID).set({
                 "username": ui.regUsername.val(),
                 "avatar": 'dog',
                 "e-mail": ui.regEmail.val(),
@@ -19,7 +19,7 @@ ui.regSubmitBtn.on("click", function(e) {
             })
             .then(() => {
                 firebase.database().ref("logged-in").update({
-                    [sessionStorage.UID]: true,
+                    [localStorage.UID]: true,
                 })
                 .then(() => window.location.replace("../chat.html"))
             });
