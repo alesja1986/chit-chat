@@ -6,6 +6,18 @@ ui.chatRooms.on("click", ".chat-room", function(){
     loadChat(newChat);
 });
 
+// Clicking the plus icon in chat rooms view to create new chat room
+ui.createNewChat.on("click", () => {
+    // Hide chat view
+    ui.chatWindow.hide();
+
+    // Show chat settings, but not close button
+    ui.chatSettings.show();
+    ui.closeChatSettingsBtn.hide();
+
+    ui.chatRooms.children().removeClass("active-chat");
+    activeChat = null;
+});
 
 // Load chat rooms
 function loadChatRooms() {
