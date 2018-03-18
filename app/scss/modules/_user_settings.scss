@@ -1,3 +1,4 @@
+/* User settings */
 #user-settings {
     $settingsColor: map-get($color, accent1);
 
@@ -33,6 +34,7 @@
         margin-top: 0;
     }
 
+    /* Avatar preview */
     #user-preview {
         img {
             display: block;
@@ -40,9 +42,11 @@
         }
     }
 
+    /* Settings form */
     #user-settings-form {
         margin-top: 1em;
 
+        /* Avatar selction */
         #avatar-selection{
             display: flex;
             justify-content: space-between;
@@ -70,6 +74,7 @@
             }
         }
 
+        /* Link to avatar image source */
         #avatar-reference {
             color: white;
             display: inline-block;
@@ -77,16 +82,19 @@
             padding-bottom: 1em;
         }
 
+        /* Username input field */
         #username-modification {
             @extend %form-input;
             width: 100%;
             text-align: center;
         }
 
+        /* Form buttons */
         .buttons {
             display: flex;
             margin-top: 5px;
 
+            /* Discard settings button */
             #discard-user-settings {
                 background: map-get($color, main);
                 color: map-get($color, bright);
@@ -103,6 +111,7 @@
                 }
             }
 
+            /* Save settings button */
             #save-user-settings {
                 background-color: map-get($color, green);
                 color: map-get($color, bright);

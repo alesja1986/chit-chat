@@ -1,9 +1,4 @@
-
-// Check if user is logged in. If so, redirect to that page
-if(firebase.auth().currentUser){
-    window.location.replace("../chat.html");
-}
-
+// When register button is pressed
 ui.regSubmitBtn.on("click", function(e) {
     e.preventDefault();
 
@@ -11,6 +6,7 @@ ui.regSubmitBtn.on("click", function(e) {
     firebase.auth().createUserWithEmailAndPassword(ui.regEmail.val(), ui.regPassword.val())
         .then(() => {
             localStorage.UID = firebase.auth().currentUser.uid;
+            // Save other user info in DB
             firebase.database().ref("all-users/" + localStorage.UID).set({
                 "username": ui.regUsername.val(),
                 "avatar": 'dog',
@@ -18,6 +14,7 @@ ui.regSubmitBtn.on("click", function(e) {
                 "name": ui.regFullname.val(),
             })
             .then(() => {
+                // Mark as logged in and change to chat page
                 firebase.database().ref("logged-in").update({
                     [localStorage.UID]: true,
                 })

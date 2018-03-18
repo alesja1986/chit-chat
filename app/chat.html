@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
     <!-- The below 3 meta tags *must* come first in the head -->
@@ -30,9 +30,10 @@
     <script src="js/checkUserStatus.js"></script>
 
     <!-- 
-        Log out + user settings 
+        User bar
     -->
     <div id="user-bar">
+        <!-- User settings -->
         <div id="user-settings">
             <h3>User Settings</h3>
             <div id="user-preview">
@@ -90,10 +91,12 @@
                 </div>
             </form>
         </div>
+        <!-- User settings button -->
         <div id="user-settings-button">
             <img class="avatar" src="img/avatars/none.png">
             <span class="username"></span>
         </div>
+        <!-- Log out button -->
         <button id="logout-button">Log Out</button>
     </div>
 
@@ -102,6 +105,7 @@
     -->
     <div id="main-app">
 
+        <!-- Chat rooms view -->
         <div id="chat-rooms">
             <div class="bar">
                 <h3>Chat Rooms</h3>
@@ -111,56 +115,59 @@
             </div>
         </div>
 
+        <!-- Logged in users view -->
         <div id="logged-in-users">
             <div class="bar">
                 <h3>Logged in users</h3>
             </div>
         </div>
 
+        <!-- Chat window -->
         <div id="chat-window">
+            <!-- Bar -->
             <div class="bar">
                 <h3></h3>
                 <span id="chat-settings-btn">
                     <i class="fas fa-cogs"></i>
                 </span>
             </div>
-
+            <!-- Chat view -->
             <div id="chat-view"></div>
+            <!-- Chat input -->
             <div id="chat-input">
                 <input type="text" id="chat-message-input" placeholder="Write your message...">
                 <button type="submit" id="send-message">Send</button>
             </div>
         </div>
 
+        <!-- Chat settings -->
         <div id="chat-settings">
+            <!-- Bar -->
             <div class="bar">
                 <h3>CHAT SETTINGS</h3>
                 <span id="chat-settings-window">
                     <i class="fas fa-times"></i>
                 </span>
             </div>
-
+            <!-- Chat settings form -->
             <form id="create-chat-form">
                 <label>Chat room name</label>
                 <input id="chat-name" required>
-                <p></p>
 
                 <label>Theme</label>
                 <div class="chat-theme" required>
-                <img src="img/themes/bg1.png">
-                <img src="img/themes/bg2.png">
-                <img src="img/themes/bg3.png">
-                <img src="img/themes/bg4.png">
-                <img src="img/themes/bg5.png">
-                <img src="img/themes/bg6.png">
-                <img src="img/themes/bg7.png">
+                    <img src="img/themes/bg1.png">
+                    <img src="img/themes/bg2.png">
+                    <img src="img/themes/bg3.png">
+                    <img src="img/themes/bg4.png">
+                    <img src="img/themes/bg5.png">
+                    <img src="img/themes/bg6.png">
+                    <img src="img/themes/bg7.png">
                 </div>
 
                 <h4>Members</h4>
-
                 <div id="public-chat">
-
-                     <input type="checkbox">
+                    <input type="checkbox">
                     <label>Public Chat Room</label>
                 </div>
 
@@ -197,7 +204,9 @@
         firebase.initializeApp(config);
     </script>
 
-    <!-- Handlebars templates -->
+    <!-- 
+        Handlebars templates 
+    -->
     <script id="logged-in-user-template" type="text/x-handlebars-template">
         {{#each this}}
         <div class="logged-in-user">
@@ -223,7 +232,9 @@
           <div class="chat-room{{#checkIfDefaultRoom chatid}}{{body}}{{/checkIfDefaultRoom}}" data-chat-room-id ={{chatid}}>{{settings.name}}</div>
     </script>
 
-    <!-- JavaScript -->
+    <!-- 
+        JavaScript 
+    -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

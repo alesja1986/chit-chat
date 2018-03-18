@@ -1,4 +1,4 @@
-
+// Log out when logout button is pressed
 ui.userLogoutBtn.on("click", () => logOut());
 
 function logOut(){
@@ -11,6 +11,7 @@ function logOut(){
             firebase.auth().signOut()
                 .then(() => {
                     localStorage.UID = null;
+                    // Change to welcome page
                     window.location.replace("../index.html");
                 })
         })

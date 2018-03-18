@@ -1,3 +1,4 @@
+// Load user settings when associated button is clicked
 ui.userSettingsBtn.on("click", () => ui.userSettings.toggle());
 
 // Load user corner info + settings

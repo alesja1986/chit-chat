@@ -1,11 +1,12 @@
-
+/* Chat view */
 #chat-view {
     padding: .5em 0;
 
-    /* All users */
+    /* Message for: All users */
     .chat-message {
         margin-right: 20%;
 
+        /* Message bubble */
         .chat-content {
             background-color: map-get($color, accent3);
             color: map-get($color, dark);
@@ -19,10 +20,12 @@
             margin: 0.5em 0.5em 3px;
             opacity: 0.9;
 
+            /* Text message */
             p {
                 margin: 0 0.5em;
             }
 
+            /* User avatar */
             img {
                 align-self: flex-start;
                 width: 70px;
@@ -31,6 +34,7 @@
             }
         }
 
+        /* Meta info = username + timestamp */
         .chat-meta-container {
             width: 100%;
             height: 20px;
@@ -49,27 +53,31 @@
         }
     }
 
-    /* Current user */
+    /* Message for: Current user */
     .this-user-message {
         margin-right: 0;
         margin-left: 20%;
 
+        /* Message bubble */
         .chat-content {
             background-color: map-get($color, accent2);
             color: map-get($color, bright);
 
             justify-content: right;
 
+            /* Text message */
             p {
                 flex-grow: 1;
             }
 
+            /* User avatar */
             img{
                 justify-content: right;
                 order: 2;
             }
         }
 
+        /* Meta info = username + timestamp */
         .chat-meta-container {
             .chat-meta {
                 background: map-get($color, accent2);

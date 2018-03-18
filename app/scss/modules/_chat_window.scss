@@ -1,12 +1,15 @@
+/* Chat window */
 #chat-window {
   @extend %chat-window;
 
+  /* Message input bar */
   #chat-input {
     height: 60px;
     width: 100%;
     background-color: map-get($color, main);
     box-shadow: 1px 3px 9px -3px rgba(0, 0, 0, 0.75);
 
+    /* Message input field */
     input {
       width: 70%;
       height: 40px;
@@ -17,6 +20,7 @@
       padding: 0 1em;
     }
 
+    /* Send message button */
     button {
       @extend %button;
       width: 200px;
@@ -25,6 +29,7 @@
   }
 }
 
+/* Chat message view */
 #chat-view {
   overflow: auto;
   height: 600px;
