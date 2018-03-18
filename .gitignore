@@ -13,3 +13,5 @@ package-lock.json
 app/css/styles.css
 .idea
 .idea/
+localhost
+localhost:3000.json

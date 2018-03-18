@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
 	<!-- The below 3 meta tags *must* come first in the head -->
@@ -21,7 +21,12 @@
 
 <body>
   
-<!-- Log In -->
+    <!-- Check login status to determine which page to load -->
+    <script src="js/checkUserStatus.js"></script>
+
+	<!-- 
+		Log In 
+	-->
 	<div id="login">
 		<form>
 			<input class="e-mail" type="email" placeholder="e-mail" required>
@@ -29,26 +34,32 @@
 			<button id="login-button" type="submit">Log In</button>
 		</form>
 	</div>
-<div id="welcome-text">
-<h3>Welcome</h3>
-<h1>Chit-Chat</h1>
-<h4>  We Connect People </h4>
-</div>
 
-  <!-- Registration -->
+	<!-- 
+		Welcome
+	-->
+	<div id="welcome-text">
+		<h3>Welcome</h3>
+		<h1>Chit-Chat</h1>
+		<h4>  We Connect People </h4>
+	</div>
+
+  	<!-- 
+		  Registration 
+	-->
 	<form id="registration-form">
 		<h2>Register</h2>
 		<label>Username *</label>
-		<input id="user-name" required><p></p>
+		<input id="user-name" required>
 
 		<label>Full Name*</label>
-		<input id="full-name" required><p></p>
+		<input id="full-name" required>
 
 		<label>E-mail *</label>
-		<input  id="e-mail" required><p></p>
+		<input  id="e-mail" required>
 
 		<label>Password *</label>
-		<input type="password" id="password" required><p></p>
+		<input type="password" id="password" required>
 
 		<button type="submit" id="registration-btn">Register Now</button>
 	</form>
@@ -70,7 +81,9 @@
 		firebase.initializeApp(config);
 	</script>
 
-	<!-- JavaScript -->
+	<!-- 
+		JavaScript 
+	-->
 	<!-- jQuery -->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	    crossorigin="anonymous"></script>

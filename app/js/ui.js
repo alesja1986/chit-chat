@@ -25,9 +25,10 @@ const ui = {
     deleteChatRoomBtn: $('#delete-chat-room'),
     chatNameInput : $('#chat-name'),
 
-    // Logged in users
+    // Logged in users & chat rooms
     loggedInUsers: $("#logged-in-users"),
     chatRooms: $("#chat-rooms"),
+    createNewChat: $("#create-new-chat"),
 
     // User corner info
     userBar: $("#user-bar"),

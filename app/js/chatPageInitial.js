@@ -1,10 +1,12 @@
 updateAllUsers();
 
-function updateAllUsers() { // Update all users list
+// Update all users list
+function updateAllUsers() { 
     firebase.database().ref("all-users").once("value")
         .then((snapshotAllUsers) => {
             allUsers = snapshotAllUsers.val();
             
+            // Load basics
             loadUser();
             loadChatRooms();
             loadChat(defaultChat);
