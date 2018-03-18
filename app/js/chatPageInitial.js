@@ -7,7 +7,7 @@ function updateAllUsers() { // Update all users list
             
             loadUser();
             loadChatRooms();
-            loadChat();
+            loadChat(defaultChat);
         });
     firebase.database().ref("all-users").on("child_changed",
         (snapshotAllUsers) => {

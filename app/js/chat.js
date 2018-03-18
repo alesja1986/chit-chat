@@ -1,66 +1,81 @@
-ui.sendMessageBtn.on('click',sendMessage);
+// Send message when message button is clicked
+ui.sendMessageBtn.on('click', sendMessage);
 
 // Load chat
-function loadChat(){
-    firebase.database().ref("chatrooms/" + activeChat).once("value")
-    .then((snapshotChatroom) => {
-        let chatroom = snapshotChatroom.val();
-        
+function loadChat(newChat){
+    // Hide chat settings and show chat view, if not already so
+    ui.chatSettings.hide();
+    ui.closeChatSettingsBtn.hide();
+    ui.chatWindow.show();
+
+    // Remove old HTML
+    ui.chatView.children().remove();
+
+    // Remove old listeners
+    firebase.database().ref("chatrooms/" + activeChat + "/settings").off();
+    firebase.database().ref("chatrooms/" + activeChat + "/messages").off();
+    activeChat = newChat;
+
+    // Loads chat settings and listens for future changes
+    firebase.database().ref("chatrooms/" + activeChat + "/settings")
+        .on("child_added", settings => renderChatSettings(settings));
+    firebase.database().ref("chatrooms/" + activeChat + "/settings")
+        .on("child_changed", settings => renderChatSettings(settings));
+    function renderChatSettings(settings) {
         // Chat title and background
-        ui.chatBarTitle.text(chatroom.settings.name);
-        ui.chatView.css("background-image", `url(../img/themes/${chatroom.settings.theme}.png)`);  
+        if(settings.key === "name")
+            ui.chatBarTitle.text(settings.val());
+        else if(settings.key === "theme")
+            ui.chatView.css("background-image", `url(../img/themes/${settings.val()}.png)`);
+    }
 
-        // Sort messages by timestamp
-        let messages = chatroom.messages;
-        messages = Object.keys(messages).map(key => messages[key]);
-        sortObjectArrayByStringKey(messages, "timestamp");
+    // Loads messages
+    firebase.database().ref("chatrooms/" + activeChat + "/messages").orderByChild("timestamp").once("value")
+        .then(snapshot => {
+            let messages = snapshot.val();
+            
+            // Make it iterable as an array
+            messages = Object.keys(messages).map(key => messages[key]);
 
-        // Add user info to specific messages
-        for(let m of messages){
-            m.username = allUsers[m.uid].username;
-            m.avatar = allUsers[m.uid].avatar;
-        }
-
-        messages.pop();
-
-        // Render HTML
-        let HTML = getHTMLFromTemplate("#chat-message-template", messages);
-        ui.chatView.children().remove();
-        ui.chatView.append(HTML);
-
-        // Hide chat settings and show chat view, if not already so
-        ui.chatSettings.hide();
-        ui.closeChatSettingsBtn.hide();
-        ui.chatWindow.show();
-
-        // Scroll to bottom
-        ui.chatView.scrollTop(ui.chatView[0].scrollHeight);
-
-        // Register listener for new messages
-        firebase.database().ref("chatrooms/" + activeChat + "/messages" ).limitToLast(1).on('child_added' , function (snapshot) {
-            let newMessage = snapshot.val();
-
-            // Add user info to specific messages
-            newMessage.username = allUsers[newMessage.uid].username;
-            newMessage.avatar = allUsers[newMessage.uid].avatar;
-
-            // Render HTML
-            let HTML = getHTMLFromTemplate("#chat-message-template", [newMessage]);
-
-            // Let scroll follow if on bottom
-            var isScrolledToBottom = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight <= ui.chatView[0].scrollTop + 1;
-            ui.chatView.append(HTML);
-            if(isScrolledToBottom){
-                //ui.chatView.animate({scrollTop: ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight}, 1000);
-                ui.chatView[0].scrollTop = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight;
+            // Render messages
+            for(let m of messages){
+                let HTML = constructMessage(m);
+                ui.chatView.append(HTML);
             }
-        })
+            
+            // Scroll to bottom
+            ui.chatView.scrollTop(ui.chatView[0].scrollHeight);
+
+        });
+
+    // Listens for and loads new messages
+    firebase.database().ref("chatrooms/" + activeChat + "/messages").orderByChild('timestamp').startAt(getTimeStampAsString()).on("child_added", snapshot => {
+        let message = snapshot.val();
+        let HTML = constructMessage(message);
+
+        // Let scroll follow if on bottom
+        let isScrolledToBottom = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight <= ui.chatView[0].scrollTop + 1;
+        ui.chatView.append(HTML);
+        if(isScrolledToBottom){
+            ui.chatView.animate({scrollTop: ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight}, 1000);
+            // ui.chatView[0].scrollTop = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight;
+        }
     });
 
+    // Constructs HTML for a message
+    function constructMessage(message){
+        // Add user info to specific messages
+        message.username = allUsers[message.uid].username;
+        message.avatar = allUsers[message.uid].avatar;
+        
+        // Render HTML
+        let HTML = getHTMLFromTemplate("#chat-message-template", message);
+        return HTML;
+    }
 }
 
 // Send a message in chat room
-function sendMessage() {
+function sendMessage(){
     let messageText = ui.chatMessageInput.val();
     let time = getTimeStampAsString();
     if (ui.chatMessageInput.val()!= "") {
@@ -77,7 +92,7 @@ function sendMessage() {
 // Get time stamp for message
 function getTimeStampAsString() {
 
-    let date = new  Date();
+    let date = new Date();
     let yyyy = date.getFullYear(); //hämtar åren från date
     let dd= date.getDate()   //hämtar dagen från date
     let mm = date.getMonth()+1;  //hämtar månaden från date

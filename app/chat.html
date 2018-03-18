@@ -109,7 +109,7 @@
 
         <div id="chat-window">
             <div class="bar">
-                <h3>KODNINJORNA</h3>
+                <h3></h3>
                 <span id="chat-settings-btn">
                     <i class="fas fa-cogs"></i>
                 </span>
@@ -197,7 +197,6 @@
         {{/each}}
     </script>
     <script id="chat-message-template" type="text/x-handlebars-template">
-        {{#each this}}
         <div class="chat-message{{#checkIfCurrentUser uid}}{{body}}{{/checkIfCurrentUser}}">
             <div class="chat-content">
                 <img src="img/avatars/{{avatar}}.png" class="chat-avatar">
@@ -207,7 +206,6 @@
                 {{username}}, {{timestamp}}
             </div>
         </div>
-        {{/each}}
     </script>
 
     <script id="chat-room-template" type="text/x-handlebars-template">
