@@ -27,6 +27,7 @@ ui.userSettingsDiscardButton.on("click", e => {
 });
 
 // Save user settings button
+ui.userSettingsForm.keypress(e => e.which == 13 ? ui.userSettingsSaveButton.trigger("click") : "");
 ui.userSettingsForm.on("submit", e => {
     e.preventDefault();
 

@@ -31,6 +31,7 @@ const ui = {
     // User corner info
     userBar: $("#user-bar"),
     userLogoutBtn: $("#logout-button"),
+    userSettings: $("#user-settings"),
     userSettingsBtn: $("#user-settings-button"),
     userSettingsForm: $("#user-settings-form"),
     userAvatarSelection: $("#avatar-selection"),
@@ -40,8 +41,4 @@ const ui = {
     userUsernameInput: $("#username-modification"),
     userSettingsDiscardButton: $("#discard-user-settings"),
     userSettingsSaveButton: $("#save-user-settings"),
-
-    // User settings
-    userSettings: $("#user-settings"),
-    userSettingsClose: $("#user-settings > .bar > span")
 }
