@@ -1,31 +1,28 @@
 #chat-window {
-    @extend %chat-window;
+  @extend %chat-window;
 
-    #chat-input{
-         height: 60px;
-         width: 100%;
-         background-color: map-get($color, main);
-         box-shadow: 1px 3px 9px -3px rgba(0,0,0,0.75);
-       }
+  #chat-input {
+    height: 60px;
+    width: 100%;
+    background-color: map-get($color, main);
+    box-shadow: 1px 3px 9px -3px rgba(0, 0, 0, 0.75);
 
-    #chat-input input {
-          width: 70%;
-          height: 40px;
-          margin: 10px 0 0 15px;
-          border-radius: 3em;
-          border-style: none;
-          outline: none
-       }
+    input {
+      width: 70%;
+      height: 40px;
+      margin: 10px 0 0 15px;
+      border-radius: 3em;
+      border-style: none;
+      outline: none;
+      padding: 0 1em;
+    }
 
-    #chat-input button{
-          @extend %button;
-          width:200px;
-          margin-left: 10px;
-       }
-
-    #chat-message-input{
-          padding-left:1em;
- }
+    button {
+      @extend %button;
+      width: 200px;
+      margin-left: 10px;
+    }
+  }
 }
 
 #chat-view {
