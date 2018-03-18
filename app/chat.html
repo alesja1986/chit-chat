@@ -203,7 +203,7 @@
                 <p class="chat-text">{{text}}</p>
             </div>
             <div class="chat-meta">
-                {{username}}, {{timestamp}}
+                {{username}}, {{#shortenTimestamp timestamp}}{{body}}{{/shortenTimestamp}}
             </div>
         </div>
     </script>

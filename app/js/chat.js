@@ -50,7 +50,7 @@ function loadChat(newChat){
         });
 
     // Listens for and loads new messages
-    firebase.database().ref("chatrooms/" + activeChat + "/messages").orderByChild('timestamp').startAt(getTimeStampAsString()).on("child_added", snapshot => {
+    firebase.database().ref("chatrooms/" + activeChat + "/messages").orderByChild('timestamp').startAt(getCurrentTime()).on("child_added", snapshot => {
         let message = snapshot.val();
         let HTML = constructMessage(message);
 
@@ -58,7 +58,7 @@ function loadChat(newChat){
         let isScrolledToBottom = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight <= ui.chatView[0].scrollTop + 1;
         ui.chatView.append(HTML);
         if(isScrolledToBottom){
-            ui.chatView.animate({scrollTop: ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight}, 1000);
+            ui.chatView.animate({scrollTop: ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight}, 200);
             // ui.chatView[0].scrollTop = ui.chatView[0].scrollHeight - ui.chatView[0].clientHeight;
         }
     });
@@ -78,7 +78,7 @@ function loadChat(newChat){
 // Send a message in chat room
 function sendMessage(){
     let messageText = ui.chatMessageInput.val();
-    let time = getTimeStampAsString();
+    let time = getCurrentTime();
     if (ui.chatMessageInput.val()!= "") {
         firebase.database().ref("chatrooms/" + activeChat + "/messages" ).push({
            "text": messageText,
@@ -91,21 +91,18 @@ function sendMessage(){
 }
 
 // Get time stamp for message
-function getTimeStampAsString() {
+function getCurrentTime() {
 
     let date = new Date();
-    let yyyy = date.getFullYear(); //hämtar åren från date
-    let dd= date.getDate()   //hämtar dagen från date
-    let mm = date.getMonth()+1;  //hämtar månaden från date
-    let hour = date.getHours();  //hämtar timmar
-    let minut = date.getMinutes(); // hämtar minuter
+    let yyyy = date.getFullYear(); 
+    let mm = ("0" + (date.getMonth()+1)).slice(-2); 
+    let dd= ("0" + date.getDate()).slice(-2);
+    let hour = ("0" + date.getHours()).slice(-2); 
+    let minute = ("0" + date.getMinutes()).slice(-2);
+    let second = ("0" + date.getSeconds()).slice(-2);
+    let ms = ("00" + date.getMilliseconds()).slice(-3);
 
-    return  yyyy + '-' + 
-        (mm < 10 ? `0${mm}` : mm) + '-' + 
-        (dd < 10 ? `0${dd}` : dd) + ' ' +
-        (hour < 10 ? `0${hour}` : hour) + ':' + 
-        (minut < 10 ? `0${minut}` : minut);
-
+    return `${yyyy}-${mm}-${dd} ${hour}:${minute}:${second}.${ms}`;
 }
 
 // Adds a special current user class to message, if so
@@ -114,4 +111,8 @@ Handlebars.registerHelper("checkIfCurrentUser", (messageUser, options) => {
         return " this-user-message";
     else
         return "";
+});
+
+Handlebars.registerHelper("shortenTimestamp", (timestamp, options) => {
+    return timestamp.slice(0, 16);
 });
