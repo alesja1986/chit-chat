@@ -212,8 +212,10 @@
                 <img src="img/avatars/{{avatar}}.png" class="chat-avatar">
                 <p class="chat-text">{{text}}</p>
             </div>
-            <div class="chat-meta">
-                {{username}}, {{#shortenTimestamp timestamp}}{{body}}{{/shortenTimestamp}}
+            <div class="chat-meta-container">
+                <span class="chat-meta">
+                    {{username}}, {{#shortenTimestamp timestamp}}{{body}}{{/shortenTimestamp}}
+                </span>
             </div>
         </div>
     </script>

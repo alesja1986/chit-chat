@@ -1,19 +1,22 @@
 
 #chat-view {
+    padding: .5em 0;
 
     /* All users */
     .chat-message {
+        margin-right: 20%;
 
         .chat-content {
-            width: 80%;
             background-color: map-get($color, accent3);
             color: map-get($color, dark);
+            border: 1px solid darkslategrey;
+
             display: flex;
             align-items: center;
-            border: 1px solid darkslategrey;
+
             border-radius: 5px;
             padding: 10px;
-            margin: 0.5em 0.5em 0;
+            margin: 0.5em 0.5em 3px;
             opacity: 0.9;
 
             p {
@@ -28,24 +31,34 @@
             }
         }
 
-        .chat-meta {
-            color: map-get($color, dark);
-            text-align: right;
-            margin-right: 20%;
+        .chat-meta-container {
+            width: 100%;
+            height: 20px;
+            position: relative;
+
+            .chat-meta {
+                background: map-get($color, accent3);
+                color: map-get($color, dark);
+                opacity: 0.7;
+                position: absolute;
+                right: 0;
+                border-radius: 1em;
+                padding: 0 .5em;
+                margin: 0 .5em;
+            }
         }
     }
 
     /* Current user */
     .this-user-message {
-        color: map-get($color, bright);
-        text-align: left;
+        margin-right: 0;
+        margin-left: 20%;
 
         .chat-content {
             background-color: map-get($color, accent2);
             color: map-get($color, bright);
-            display: flex;
+
             justify-content: right;
-            margin: .5em 10em 0;
 
             p {
                 flex-grow: 1;
@@ -54,13 +67,16 @@
             img{
                 justify-content: right;
                 order: 2;
-                margin: 0.2em;
             }
         }
 
-        .chat-meta {
-            text-align: left;
-            margin-left: 20%;
+        .chat-meta-container {
+            .chat-meta {
+                background: map-get($color, accent2);
+                color: map-get($color, bright);
+                left: 0;
+                right: auto;
+            }
         }
     }
 }
