@@ -1,16 +1,19 @@
-
+// Log out when logout button is pressed
 ui.userLogoutBtn.on("click", () => logOut());
 
 function logOut(){
-    firebase.auth().signOut()
+    // Announce log out to database
+    firebase.database().ref("logged-in").update({
+        [localStorage.UID]: false,
+    })
         .then(() => {
-            firebase.database().ref("all-users/" + UID).update({
-                "logged-in": false,
-            })
-            .then(() => {
-                UID = null;
-                window.location.replace("../index.html")
-            })
+            // Log out for real
+            firebase.auth().signOut()
+                .then(() => {
+                    localStorage.UID = null;
+                    // Change to welcome page
+                    window.location.replace("../index.html");
+                })
         })
-        .catch(() => console.log("Kunde inte logga ut :("));
+        .catch((err) => console.log(err));
 }

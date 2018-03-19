@@ -1,3 +1,4 @@
+/* Registration form */
 #registration-form {
   background-color:map-get($color,  accent3 );
   color:map-get($color, dark);
@@ -7,34 +8,35 @@
   border-radius:2em;
   padding-bottom:1.5em;
 
+  /* Title */
   h2{
     text-align: center;
     padding-top: 1em;
   }
 
+  /* Input fields */
   input{
     @extend %form-input;
     margin:0 0 0.5em 1.5em;
     width: 300px;
   }
 
+  /* Associated labels */
   label{
     display: block;
     margin: 0.5em 0 0 2em;
   }
 
-#registration-btn{
-  @extend %button;
-  display:block;
-  margin-left:3em;
-  width:250px;
-}
-
-  p{
-   color:map-get($color,main);
+  /* Registration button */
+  #registration-btn{
+    @extend %button;
+    display:block;
+    margin-left:3em;
+    width:250px;
   }
 } //form ends
 
+/* Welcome text */
 #welcome-text{
    color:map-get($color,bright);
    text-align: center;

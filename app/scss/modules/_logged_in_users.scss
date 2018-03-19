@@ -1,0 +1,24 @@
+/* Logged in users view */
+#logged-in-users {
+    overflow: auto;
+    height: 320px;
+
+    /* Logged in user */
+    .logged-in-user {
+        display: flex;
+        align-items: center;
+        margin: 1em;
+
+        /* User avatar */
+        img {
+            height: 40px;
+            width: 40px;
+        }
+
+        /* Username */
+        .username {
+            padding-left: 10px;
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+/* User settings */
+#user-settings {
+    $settingsColor: map-get($color, accent1);
+
+    background: $settingsColor;
+    z-index: 1;
+    display: none;
+    position: absolute;
+    width: 300px;
+    top: 85px;
+    right: 0px;
+    border-radius: 1em;
+    padding: 1em;
+
+    // Bubble pointer
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 26px solid transparent;
+        border-bottom-color: $settingsColor;
+        border-top: 0;
+        margin-left: -26px;
+        margin-top: -26px;
+    }
+
+    // User settings title
+    h3 {
+        text-align: center;
+        color: map-get($color, bright);
+        margin-top: 0;
+    }
+
+    /* Avatar preview */
+    #user-preview {
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    /* Settings form */
+    #user-settings-form {
+        margin-top: 1em;
+
+        /* Avatar selction */
+        #avatar-selection{
+            display: flex;
+            justify-content: space-between;
+        
+            .avatar {
+                height: 24px;
+
+                input{ /* HIDE RADIO */
+                    visibility: hidden; /* Makes input not-clickable */
+                    position: absolute; /* Remove input from document flow */
+                }
+
+                img{ 
+                    cursor:pointer;
+                    border:3px solid transparent;
+                    border-radius: 1em;
+                    width: 30px;
+                    height: 30px;
+                }
+            
+                // When avatar is selected
+                input:checked + img{ 
+                    border:3px solid map-get($color, accent3);
+                }
+            }
+        }
+
+        /* Link to avatar image source */
+        #avatar-reference {
+            color: white;
+            display: inline-block;
+            font-size: 8px;
+            padding-bottom: 1em;
+        }
+
+        /* Username input field */
+        #username-modification {
+            @extend %form-input;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Form buttons */
+        .buttons {
+            display: flex;
+            margin-top: 5px;
+
+            /* Discard settings button */
+            #discard-user-settings {
+                background: map-get($color, main);
+                color: map-get($color, bright);
+                height: 40px;
+                border: none;
+                border-radius: .5em;
+                cursor: pointer;
+
+                padding: 0 10px;
+                margin-right: 5px;
+                
+                &:hover {
+                    background: lighten(map-get($color,main), 5%);
+                }
+            }
+
+            /* Save settings button */
+            #save-user-settings {
+                background-color: map-get($color, green);
+                color: map-get($color, bright);
+                height: 40px;
+                border: none;
+                border-radius: .5em;
+                cursor: pointer;
+
+                flex-grow: 1;
+
+                &:hover {
+                    background: lighten(map-get($color,green), 5%);
+                }
+            }
+        }
+    }
+}

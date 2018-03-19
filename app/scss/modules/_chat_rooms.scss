@@ -1,0 +1,21 @@
+/* Chat rooms */
+#chat-rooms {
+    .chat-room {
+        width: 100%;
+        padding: 5px 1em;
+        
+        text-align: left;
+        font-size: 20px;
+
+        /* Hovering over a chatroom */
+        &:hover {
+            background: lighten(map-get($color, darkgrey), 10%);
+        }
+
+        /* Selected chat room */
+        &.active-chat {
+            background: lighten(map-get($color, darkgrey), 30%);
+            color: map-get($color, dark);
+        }
+    }
+}
