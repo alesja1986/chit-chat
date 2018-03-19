@@ -104,6 +104,11 @@ gulp.task("fonts", function() {
     return gulp.src("app/fonts/**/*").pipe(gulp.dest("dist/fonts"));
 });
 
+// Copying JavaScript
+gulp.task("javascript", function() {
+    return gulp.src("app/js/**/*").pipe(gulp.dest("dist/js"));
+});
+
 // Cleaning
 gulp.task("clean", function() {
     return del.sync("dist").then(function(cb) {
@@ -123,5 +128,5 @@ gulp.task("default", function(callback) {
 });
 
 gulp.task("build", function(callback) {
-    runSequence("clean:dist", "sass", ["useref", "images", "fonts"], callback);
+    runSequence("clean:dist", "sass", ["useref", "images", "javascript", "fonts"], callback);
 });
