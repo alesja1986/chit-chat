@@ -1,5 +1,7 @@
 /* Logged in users view */
 #logged-in-users {
+    overflow: auto;
+    height: 320px;
 
     /* Logged in user */
     .logged-in-user {
